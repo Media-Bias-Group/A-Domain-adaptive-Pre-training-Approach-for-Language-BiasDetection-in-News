@@ -7,7 +7,7 @@ decision-making. Slanted news reporting is the result of one-sided and polarized
 
 # Experiments resulting in models contained in this repo
 
-## Pre-training on the WikiNeutralityCorpus (Pryzant et al., 2020)
+## Pre-training on the *WikiNeutralityCorpus* (Pryzant et al., 2020)
 - supervised binary sequence classification task
 - initialization of RoBERTa, BERT, BART, and T5
 with pre-trained weights provided by the HuggingFace API + dropout layer (Dropout = 0.2) and randomly initialized linear
