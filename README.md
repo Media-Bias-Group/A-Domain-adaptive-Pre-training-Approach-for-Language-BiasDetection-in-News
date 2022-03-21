@@ -12,3 +12,15 @@ The models can be found anonymously on: https://drive.google.com/drive/u/4/folde
 - "BABE.xlsx": BABE corpus provided by Spinde et al. (2021): https://github.com/Media-Bias-Group/Neural-Media-Bias-Detection-Using-Distant-Supervision-With-BABE
 - "domain-adaptive-pretraining.ipynb": Domain-adaptive Pre-training script (More information provided in the script's header)
 - "fine-tune-and-evaluate-domain-adaptive-pretraining.ipynb": Script to fine-tune Domain-adapted models on BABE corpus via 5-fold CV.
+
+# Cite as
+@InProceedings{
+  author={Krieger, David and Spinde, Timo and Ruas, Terry and Kulshrestha, Juhi and Gipp, Bela},
+  booktitle={2022 ACM/IEEE Joint Conference on Digital Libraries (JCDL)}, 
+  title={A Domain-adaptive Pre-training Appraoch for Language Bias Detection in News}, 
+  year={2022},
+  volume={},
+  number={},
+  }
+  
+  More about our work can be found here: https://media-bias-research.org/
