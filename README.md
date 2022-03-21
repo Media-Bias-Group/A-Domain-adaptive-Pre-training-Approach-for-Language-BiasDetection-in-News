@@ -1,7 +1,7 @@
 # A-Domain-adaptive-Pre-training-Approach-for-Language-Bias-Detection-in-News
 The repository contains the data files and scripts corresponding to the paper "A Domain-adaptive Pre-training Approach for Language Bias Detection in News".
 
-The models can be found anonymously on: https://drive.google.com/drive/u/4/folders/1-A1hGKeu-27X9I4ySkja5vMlVscnF8GR
+All models can be found anonymously on: https://drive.google.com/drive/u/4/folders/1-A1hGKeu-27X9I4ySkja5vMlVscnF8GR. You can also download our best performing model via HuggingFace (https://huggingface.co/Datadave09/DA-RoBERTa).
 - "DA-Roberta.bin": Domain-adaptive Pre-training with RoBERTa.
 - "DA-T5.bin": Domain-adaptive Pre-training with T5.
 - "DA-BERT.bin": Domain-adaptive Pre-training with BERT.
@@ -12,6 +12,56 @@ The models can be found anonymously on: https://drive.google.com/drive/u/4/folde
 - "BABE.xlsx": BABE corpus provided by Spinde et al. (2021): https://github.com/Media-Bias-Group/Neural-Media-Bias-Detection-Using-Distant-Supervision-With-BABE
 - "domain-adaptive-pretraining.ipynb": Domain-adaptive Pre-training script (More information provided in the script's header)
 - "fine-tune-and-evaluate-domain-adaptive-pretraining.ipynb": Script to fine-tune Domain-adapted models on BABE corpus via 5-fold CV.
+
+# How to use
+
+You can use the model with the Pytorch framework as shown in the following lines of code:
+
+```
+#imports
+!pip install transformers
+!pip install openpyxl
+import torch
+import torch.nn as nn
+import numpy as np
+from transformers import RobertaTokenizer,RobertaModel
+
+#define model class including binary classification layer 
+class RobertaClass(torch.nn.Module):
+    def __init__(self):
+        super(RobertaClass, self).__init__()
+        self.roberta = RobertaModel.from_pretrained("roberta-base")
+        self.vocab_transform = torch.nn.Linear(768, 768)
+        self.dropout = torch.nn.Dropout(0.2)
+        self.classifier1 = torch.nn.Linear(768,2)
+
+    def forward(self, input_ids, attention_mask):
+        output_1 = self.roberta(input_ids=input_ids, attention_mask=attention_mask)
+        hidden_state = output_1[0]
+        pooler = hidden_state[:, 0]
+        pooler = self.vocab_transform(pooler)
+        pooler = self.dropout(pooler)
+        output = self.classifier1(pooler)
+
+        return output
+
+#load model parameters
+weight_dict = torch.load('DA-Roberta.bin')
+                         
+#initialize model with fine-tuned parameters
+model = RobertaClass()
+model.load_state_dict(weight_dict)
+
+#exemplary bias classification with instance extracted from BABE dataset (Spinde et al.,2021)
+tokenizer = RobertaTokenizer.from_pretrained('roberta-base')
+inputs = tokenizer("A cop shoots a Black man, and a police union flexes its muscle", return_tensors="pt")
+outputs = model(**inputs)
+
+if int(torch.argmax(outputs)) == 1:
+    print("Biased")
+else:
+    print("Non-biased")
+```
 
 # Cite as
 
