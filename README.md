@@ -29,6 +29,10 @@ adaptive pre-training as an intermediate training step)
 - we additionally compare our models to a prior apprach by Spinde et al. (2021) using Distant Supervision on news headlines as pre-training approach.
 
 ## Results
+
+Below table shows the F1 scores (averaged over 5-fold CV split) of our transformer-based experiments on the binary sentence classification task. 
+All domain-adapted models (third block) outperform the baselines models (first block) and the distantly supervised models (middle block) trained by Spinde et al. (2021) via Distant Supervision.
+
 ![title](Images/results.PNG)
 
 
