@@ -14,13 +14,17 @@ The models can be found anonymously on: https://drive.google.com/drive/u/4/folde
 - "fine-tune-and-evaluate-domain-adaptive-pretraining.ipynb": Script to fine-tune Domain-adapted models on BABE corpus via 5-fold CV.
 
 # Cite as
-@InProceedings{
+
+```
+@InProceedings{Krieger2022,
   author={Krieger, David and Spinde, Timo and Ruas, Terry and Kulshrestha, Juhi and Gipp, Bela},
   booktitle={2022 ACM/IEEE Joint Conference on Digital Libraries (JCDL)}, 
   title={A Domain-adaptive Pre-training Appraoch for Language Bias Detection in News}, 
   year={2022},
-  volume={},
-  number={},
+  address = "Cologne,Germany"
   }
+  ```
   
   More about our work can be found here: https://media-bias-research.org/
+
+
