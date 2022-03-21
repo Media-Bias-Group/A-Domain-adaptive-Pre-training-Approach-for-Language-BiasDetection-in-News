@@ -83,7 +83,7 @@ class RobertaClass(torch.nn.Module):
         return output
 
 #load model parameters
-weight_dict = torch.load('DA-Roberta.bin')
+weight_dict = torch.load('Roberta_full.bin')
                          
 #initialize model with fine-tuned parameters
 model = RobertaClass()
