@@ -9,3 +9,6 @@ The models can be found anonymously on: https://drive.google.com/drive/u/4/folde
 - "classifier.weights.pt" and "classifier.bias.pt": Parameters for classification layer + bias used for all models prior to Domain-adaptive Pre-training to achieve maximum comparability between approaches.
 
 # Description of files
+- "BABE.xlsx": BABE corpus provided by Spinde et al. (2021): https://github.com/Media-Bias-Group/Neural-Media-Bias-Detection-Using-Distant-Supervision-With-BABE
+- "domain-adaptive-pretraining.ipynb": Domain-adaptive Pre-training script (More information provided in the script's header)
+- "fine-tune-and-evaluate-domain-adaptive-pretraining.ipynb": Script to fine-tune Domain-adapted models on BABE corpus via 5-fold CV.
