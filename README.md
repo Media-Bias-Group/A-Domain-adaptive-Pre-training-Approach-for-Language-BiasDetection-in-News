@@ -106,9 +106,11 @@ else:
 @InProceedings{Krieger2022,
   author={Krieger, David and Spinde, Timo and Ruas, Terry and Kulshrestha, Juhi and Gipp, Bela},
   booktitle={2022 ACM/IEEE Joint Conference on Digital Libraries (JCDL)}, 
-  title={A Domain-adaptive Pre-training Appraoch for Language Bias Detection in News}, 
+  title={{A} {D}omain-adaptive {P}re-training {A}pproach for {L}anguage {B}ias {D}etection in {N}ews}, 
   year={2022},
-  address = "Cologne,Germany"
+  month        = {June},
+  location = {Cologne,Germany}
+  topic        = {newsanalysis}
   }
   ```
   
